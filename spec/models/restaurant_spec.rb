@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Restaurant, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Restaurant do
+  it "restaurant is not valid without a title" do
+    restaurant = Restaurant.new(name: nil, description: "This is my restaurant")
+    expect(restaurant).to_not be_valid
+  end
 end
