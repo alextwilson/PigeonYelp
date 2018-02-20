@@ -47,7 +47,7 @@ end
     click_link 'New restaurant'
     fill_in 'restaurant[name]', with: 'Great Pasta'
     fill_in 'restaurant[description]', with: 'The best pasta from Portugal'
-    click_button 'Save Restaurant'
+    click_button 'Create Restaurant'
     expect(page).to have_content 'Great Pasta'
     end
   end
@@ -57,7 +57,7 @@ end
     visit '/restaurants'
     click_link 'New restaurant'
     fill_in 'restaurant[name]', with: ''
-    click_button 'Save Restaurant'
+    click_button 'Create Restaurant'
     expect(page).to have_content 'error'
     end
   end
