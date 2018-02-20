@@ -1,6 +1,11 @@
 <h1>Restaurant</h1>
 <%= render @restaurant %>
 
+<p>
+  <strong>Average Rating:</strong>
+  <%= @restaurant_average %>
+</p>
+
 <h2>Reviews</h2>
 <%= render @restaurant.reviews %>
 
