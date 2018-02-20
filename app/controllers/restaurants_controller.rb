@@ -49,6 +49,6 @@ class RestaurantsController < ApplicationController
 	end
 
 	def average_rating(restaurant)
-		restaurant.reviews.average(:rating).round(2)
+		restaurant.reviews.empty? ? 0 : restaurant.reviews.average(:rating).round(2)
 	end
 end
