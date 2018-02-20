@@ -1,8 +1,5 @@
 class Restaurant < ApplicationRecord
-  include ActiveModel::AttributeMethods
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
   validates :name, presence: true
-  # define_attribute_methods 'owner'
-  # attr_accessor :owner
 end
