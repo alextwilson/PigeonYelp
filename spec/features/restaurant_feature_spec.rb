@@ -19,6 +19,16 @@ feature 'restaurants' do
         end
     end
 
+    context 'restaurants can be deleted' do
+        scenario 'not display the deleted restaurant' do
+            Restaurant.create(name: 'PizzaMamamia', description: "Italian Pizza" )
+            visit '/restaurants'
+            click_link 'Destroy'
+            expect(page).not_to have_content('PizzaMamamia')
+        end
+    end
+
+
     context 'restaurants can be shown' do
         scenario 'display the restaurant details' do
             Restaurant.create(name: 'PizzaMamamia', description: "Italian Pizza" )
@@ -35,11 +45,10 @@ feature 'restaurants' do
           Restaurant.create(name: 'Name', description: 'Description' )
           visit '/restaurants'
           click_link 'New restaurant'
-          fill_in 'Name', with: 'Great Pasta'
-          fill_in 'Description', with: 'The best pasta from Portugal'
+          fill_in 'restaurant[name]', with: 'Great Pasta'
+          fill_in 'restaurant[description]', with: 'The best pasta from Portugal'
           click_button 'Save Restaurant'
           expect(page).to have_content 'Great Pasta'
-          expect(current_path).to eq '/restaurants'
         end
     end
 
@@ -47,9 +56,8 @@ feature 'restaurants' do
            scenario 'does not let you submit a name that is less than 1 character' do
                visit '/restaurants'
                click_link 'New restaurant'
-               fill_in 'Name', with: ''
+               fill_in 'restaurant[name]', with: ''
                click_button 'Save Restaurant'
-               expect(page).not_to have_content ''
                expect(page).to have_content 'error'
            end
        end
