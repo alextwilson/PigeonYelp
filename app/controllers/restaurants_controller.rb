@@ -11,6 +11,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
@@ -19,6 +23,23 @@ class RestaurantsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+
+    if @restaurant.update(restaurant_params)
+      redirect_to @restaurant
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+
+    redirect_to restaurants_path
   end
 
   private
