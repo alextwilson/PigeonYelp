@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
 	def index
 		@restaurants = Restaurant.all
 	end
@@ -45,7 +46,7 @@ class RestaurantsController < ApplicationController
 
 	private
 	def restaurant_params
-		params.require(:restaurant).permit(:name, :description)
+		params.require(:restaurant).permit(:name, :description, :user_id)
 	end
 
 	def average_rating(restaurant)
