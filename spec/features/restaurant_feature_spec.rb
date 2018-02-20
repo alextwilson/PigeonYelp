@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'restaurants' do
+  before do
+  user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+  login_as user
+end
   context 'no restaurants displayed on the page' do
     scenario 'should have option to add a restaurant' do
     visit '/restaurants'
