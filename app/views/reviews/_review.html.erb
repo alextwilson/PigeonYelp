@@ -7,3 +7,8 @@
   <strong>Comment:</strong>
   <%= review.body %>
 </p>
+<p>
+  <%= link_to 'Delete', restaurant_review_path(review),
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+</p>
