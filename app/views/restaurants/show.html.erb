@@ -3,11 +3,14 @@
 
 <h2>Reviews</h2>
 <%= render @restaurant.reviews %>
+
 <% if user_signed_in? && current_user.id != @restaurant.user_id %>
-  <% if !@restaurant.reviews.any? {|review| review.user_id == current_user.id} %>
+  <% unless @restaurant.reviews.any? {|review| review.user_id == current_user.id} %>
     <h2>Add a review:</h2>
     <%= render 'reviews/form' %>
   <% end %>
+<% elsif user_signed_in? && current_user.id == @restaurant.user_id %>
   <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 <% end %>
+
 <%= link_to 'Back', restaurants_path %>
