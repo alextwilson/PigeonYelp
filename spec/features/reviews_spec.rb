@@ -4,10 +4,7 @@ feature 'Reviews' do
       user_login
       create_restaurant
       click_link 'Show'
-      select "3", :from => "review[rating]"
-      fill_in 'review[body]', with: 'Average'
-      click_button 'Create Review'
-      expect(page).to have_content 'You cannot leave a review for your own restaurant!'
+      expect(page).not_to have_content 'Add a review:'
     end
   end
 end
