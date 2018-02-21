@@ -4,10 +4,10 @@
 <h2>Reviews</h2>
 <%= render @restaurant.reviews %>
 
-<% if user_signed_in? %>
-<h2>Add a review:</h2>
-<%= render 'reviews/form' %>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+<% if user_signed_in? && current_user.id != @restaurant.user_id %>
+  <h2>Add a review:</h2>
+  <%= render 'reviews/form' %>
+<% elsif user_signed_in? && current_user.id == @restaurant.user_id %>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 <%end%>
 <%= link_to 'Back', restaurants_path %>
