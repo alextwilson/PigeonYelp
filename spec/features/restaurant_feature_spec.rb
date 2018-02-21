@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'web_helpers.rb'
 
 feature 'restaurants' do
 
@@ -17,8 +18,7 @@ feature 'restaurants' do
 
   context 'restaurants are added' do
     scenario 'display the restaurants' do
-      Restaurant.create(name: 'PizzaMamamia', description: "Italian Pizza", user_id: 1)
-      visit '/restaurants'
+      create_restaurant
       expect(page).to have_content('PizzaMamamia')
       expect(page).to have_link 'Show'
     end
@@ -26,8 +26,7 @@ feature 'restaurants' do
 
   context 'restaurants can be deleted' do
     scenario 'not display the deleted restaurant' do
-      Restaurant.create(name: 'PizzaMamamia', description: "Italian Pizza", user_id: 1)
-      visit '/restaurants'
+      create_restaurant
       click_link 'Destroy'
       expect(page).not_to have_content('PizzaMamamia')
     end
@@ -36,8 +35,7 @@ feature 'restaurants' do
 
   context 'restaurants can be shown' do
     scenario 'display the restaurant details' do
-      Restaurant.create(name: 'PizzaMamamia', description: "Italian Pizza", user_id: 1)
-      visit '/restaurants'
+      create_restaurant
       click_link 'Show'
       expect(page).to have_content('PizzaMamamia')
       expect(page).not_to have_content('German Pizza')
@@ -47,8 +45,7 @@ feature 'restaurants' do
 
   context 'can be created' do
     scenario 'fill in the form with the restaurant name and description' do
-      Restaurant.create(name: 'Name', description: 'Description', user_id: 1)
-      visit '/restaurants'
+      create_restaurant
       click_link 'New restaurant'
       fill_in 'restaurant[name]', with: 'Great Pasta'
       fill_in 'restaurant[description]', with: 'The best pasta from Portugal'
