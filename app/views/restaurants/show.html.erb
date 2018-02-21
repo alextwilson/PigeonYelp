@@ -4,7 +4,7 @@
 <h2>Reviews</h2>
 <%= render @restaurant.reviews %>
 
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.id != @restaurant.user_id && @restaurant.reviews.size < 1 %>
 <h2>Add a review:</h2>
 <%= render 'reviews/form' %>
 
