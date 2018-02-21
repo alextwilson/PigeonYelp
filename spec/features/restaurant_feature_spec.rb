@@ -27,7 +27,7 @@ feature 'restaurants' do
   context 'restaurants can be deleted' do
     scenario 'not display the deleted restaurant' do
       create_restaurant
-      click_link 'Delete'
+      click_link 'Destroy'
       expect(page).not_to have_content('PizzaMamamia')
     end
   end
