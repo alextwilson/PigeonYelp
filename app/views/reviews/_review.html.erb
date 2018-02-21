@@ -7,3 +7,11 @@
   <strong>Comment:</strong>
   <%= review.body %>
 </p>
+
+<p>
+  <% if user_signed_in? && current_user.id == review.user_id %>
+    <%= link_to 'Delete', restaurant_review_path(review),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</p>

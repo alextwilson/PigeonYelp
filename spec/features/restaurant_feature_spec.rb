@@ -4,7 +4,7 @@ require 'web_helpers.rb'
 feature 'restaurants' do
 
   before do
-    user_login
+    user_login('lewis@gmail.com')
   end
 
   context 'no restaurants displayed on the page' do
