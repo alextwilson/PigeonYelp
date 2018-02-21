@@ -7,16 +7,11 @@
   <strong>Comment:</strong>
   <%= review.body %>
 </p>
+
 <p>
-<<<<<<< HEAD
-  <%= link_to 'Delete', restaurant_review_path(review),
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %>
-=======
   <% if user_signed_in? && current_user.id == review.user_id %>
     <%= link_to 'Delete', restaurant_review_path(review),
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
   <% end %>
->>>>>>> 7b1b5de2a91a63d250b87edb15eb6a4b2aaaebac
 </p>
