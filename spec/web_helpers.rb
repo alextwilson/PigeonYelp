@@ -3,7 +3,7 @@ def create_restaurant
   visit '/restaurants'
 end
 
-def user_login
-  user = User.create email: 'lewis@gmail.com', password: 'password', password_confirmation: 'password'
+def user_login(email)
+  user = User.create email: email, password: 'password', password_confirmation: 'password'
   login_as user
 end
