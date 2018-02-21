@@ -4,8 +4,7 @@ require 'web_helpers.rb'
 feature 'restaurants' do
 
   before do
-    user = User.create email: 'lewis@gmail.com', password: 'password', password_confirmation: 'password'
-    login_as user
+    user_login
   end
 
   context 'no restaurants displayed on the page' do
