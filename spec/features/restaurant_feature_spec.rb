@@ -4,7 +4,7 @@ require 'web_helpers.rb'
 feature 'restaurants' do
 
   before do
-    user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+    user = User.create email: 'lewis@gmail.com', password: 'password', password_confirmation: 'password'
     login_as user
   end
 
@@ -27,7 +27,7 @@ feature 'restaurants' do
   context 'restaurants can be deleted' do
     scenario 'not display the deleted restaurant' do
       create_restaurant
-      click_link 'Destroy'
+      click_link 'Delete'
       expect(page).not_to have_content('PizzaMamamia')
     end
   end
