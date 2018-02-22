@@ -13,5 +13,5 @@ Devise.setup do |config|
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  config.omniauth :facebook, "136925007125623", "5f139b8801613fd4642d34965ca8df46"
+  config.omniauth :facebook, "APP_ID", "SECRET_KEY"
 end
