@@ -6,7 +6,6 @@ RSpec.describe Review, type: :model do
 
   context "Unsucessful review creation" do
     it "when no 'restaurant_id' is passed." do
-      review = Review.new()
       expect(bad_review).to_not be_valid
     end
 
