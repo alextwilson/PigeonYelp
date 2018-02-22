@@ -15,4 +15,22 @@ RSpec.describe Review, type: :model do
     end
   end
 
+  context "Successful review creation" do
+    it "contains a rating." do
+      expect(review.rating).to be(5)
+    end
+
+    it "contains a body." do
+      expect(review.body).to eq("Italian, Indian, Chinese Fusion! Wow! Fantastic!!!")
+    end
+
+    it "contains a 'restaurant_id'." do
+      expect(review.restaurant_id).to be(104)
+    end
+
+    it "contains a 'user_id'." do
+      expect(review.user_id).to be(3245)
+    end
+  end
+
 end
