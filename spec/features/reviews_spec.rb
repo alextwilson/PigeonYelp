@@ -39,5 +39,19 @@ feature 'Reviews' do
       click_link 'Show'
       expect(page).not_to have_content 'Delete'
     end
+
+    scenario 'reviews are displayed as stars' do
+      user_login('alex@gmail.com')
+      create_restaurant
+      click_link 'Show'
+      click_link 'Logout'
+      user_login('lewis@gmail.com')
+      click_link 'All restaurants'
+      click_link 'Show'
+      select "3", :from => "review[rating]"
+      fill_in 'review[body]', with: 'Really Bad'
+      click_button 'Create Review'
+      expect(page).to have_content '***'
+    end
   end
 end
