@@ -9,6 +9,10 @@
 </p>
 
 <p>
+  <i>by <%= User.find(review.user_id).email %></i>
+</p>
+
+<p>
   <% if user_signed_in? && current_user.id == review.user_id %>
     <%= link_to 'Delete', restaurant_review_path(review),
         method: :delete,
