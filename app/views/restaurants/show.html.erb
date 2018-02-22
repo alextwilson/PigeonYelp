@@ -2,7 +2,7 @@
 <%= render @restaurant %>
 
 <h2>Reviews</h2>
-<%= render @restaurant.reviews %>
+<%= render @review %>
 
 <% if user_signed_in? && current_user.id != @restaurant.user_id %>
   <h2>Add a review:</h2>
