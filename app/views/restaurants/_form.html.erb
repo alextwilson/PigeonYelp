@@ -25,7 +25,12 @@
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </p>
 
-
+  <div class="field">
+    <p>
+      <%= form.label :image %><br>
+      <%= form.file_field :image %>
+    </p>
+  </div>
 
   <p>
     <%= form.submit %>
