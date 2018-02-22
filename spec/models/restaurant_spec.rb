@@ -4,7 +4,6 @@ RSpec.describe Restaurant do
   subject(:restaurant) {described_class.new(name: "PizzaTown", description: "We sell Chinese food!", user_id: 22)}
 
   context "Unsuccessful resturant creation" do
-
     it "without a 'name'" do
       restaurant = Restaurant.new(name: nil, description: "We only sell broccoli.", user_id: 1)
       expect(restaurant).to_not be_valid
@@ -14,11 +13,9 @@ RSpec.describe Restaurant do
       restaurant = Restaurant.new(name: "BroccoliTown", description: "We only sell broccoli.", user_id: nil)
       expect(restaurant).to_not be_valid
     end
-
   end
 
   context "Successful resturant creation" do
-
     it "has a 'name'" do
       expect(restaurant.name).to eq("PizzaTown")
     end
