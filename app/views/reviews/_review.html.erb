@@ -1,12 +1,17 @@
 <p>
   <strong>Rating:</strong>
   <%= review.rating %>
-  <%= "*" * review.rating  %>
+  <%= "*" * review.rating %>
+  <% review.rating.times { -%> <%= render '/reviews/stars' %> <% } -%>
 </p>
 
 <p>
   <strong>Comment:</strong>
   <%= review.body %>
+</p>
+
+<p>
+  <i>by <%= User.find(review.user_id).email %></i>
 </p>
 
 <p>
