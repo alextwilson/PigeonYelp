@@ -2,7 +2,7 @@
 
 Yelp clone created by [Lewis Moore](https://github.com/lewmoore) | [Alex Wilson](https://github.com/alextwilson) | [Simon Bao](https://github.com/simonbao) | [Alexandra Fina](https://github.com/alexandragf)
 
-The aim of this project was to create a working clone of Yelp using Rails. We split this projects development in to three phases, MVP, Version 2 and Version 3. Each of these phases of development were split in to sprints with daily stand ups and team code reviews.
+The aim of this project was to create a working clone of Yelp using Rails. We split this projects development in to three phases; an MVP, Version 2 and Version 3. Each of these phases of development were split in to sprints with daily stand ups and team code reviews.
 
 **Our MVP consisted of the following specifications:**
 
@@ -27,4 +27,5 @@ The aim of this project was to create a working clone of Yelp using Rails. We sp
 * A user can delete a review they have left
 * A user can upload an image of a restaurant they are creating. This image will be stored in an Amazon S3 bucket
 
+[![Screen Shot](./doc/images/screenshot_1.jpg">)](Screenshot 1)
 ![Alt text](./doc/images/screenshot_1.jpg)
