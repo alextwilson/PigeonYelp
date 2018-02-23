@@ -54,6 +54,5 @@ feature 'Reviews' do
       click_button 'Create Review'
       expect(page).to have_selector('img[alt="image"]')
     end
-
   end
 end
