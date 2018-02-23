@@ -13,8 +13,8 @@
     <tr>
       <td><%= restaurant.name %></td>
       <td><%= restaurant.description %></td>
-      <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
       <td><%= restaurant.reviews.empty? ? "No reviews yet!" : restaurant.reviews.average(:rating).round(2) %></td>
+      <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
       <% if user_signed_in? && current_user.id == restaurant.user_id %>
       <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
       <td><%= link_to 'Destroy', restaurant_path(restaurant),

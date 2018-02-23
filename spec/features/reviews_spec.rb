@@ -10,14 +10,10 @@ feature 'Reviews' do
     scenario 'user leaves a review' do
       user_login('alex@gmail.com')
       create_restaurant
-      click_link 'Show'
       click_link 'Logout'
       user_login('lewis@gmail.com')
-      click_link 'All restaurants'
-      click_link 'Show'
-      select "3", :from => "review[rating]"
-      fill_in 'review[body]', with: 'Really Bad'
-      click_button 'Create Review'
+      go_to_restaurant
+      create_review
       expect(page).to have_content 'Really Bad'
       expect(page).to have_content 'by lewis@gmail.com'
     end
@@ -27,14 +23,10 @@ feature 'Reviews' do
     scenario 'user can delete their own reviews' do
       user_login('alex@gmail.com')
       create_restaurant
-      click_link 'Show'
       click_link 'Logout'
       user_login('lewis@gmail.com')
-      click_link 'All restaurants'
-      click_link 'Show'
-      select "3", :from => "review[rating]"
-      fill_in 'review[body]', with: 'Really Bad'
-      click_button 'Create Review'
+      go_to_restaurant
+      create_review
       click_link 'Delete'
       expect(page).not_to have_content 'Really Bad'
     end
@@ -42,19 +34,41 @@ feature 'Reviews' do
     scenario 'user cant delete other users reviews' do
       user_login('alex@gmail.com')
       create_restaurant
-      click_link 'Show'
       click_link 'Logout'
       user_login('lewis@gmail.com')
-      click_link 'All restaurants'
-      click_link 'Show'
-      select "3", :from => "review[rating]"
-      fill_in 'review[body]', with: 'Really Bad'
-      click_button 'Create Review'
+      go_to_restaurant
+      create_review
       click_link 'Logout'
       user_login('alex@gmail.com')
-      click_link 'All restaurants'
-      click_link 'Show'
+      go_to_restaurant
       expect(page).not_to have_content 'Delete'
+    end
+  end
+
+  describe 'editing a review' do
+    it 'a user can edit their own review' do
+      user_login('alex@gmail.com')
+      create_restaurant
+      click_link 'Logout'
+      user_login('lewis@gmail.com')
+      go_to_restaurant
+      create_review
+      edit_review
+      expect(page).to have_content 'Really Good'
+      expect(page).not_to have_content 'Really Bad'
+    end
+
+    it 'a user cannot edit others\' reviews' do
+      user_login('alex@gmail.com')
+      create_restaurant
+      click_link 'Logout'
+      user_login('lewis@gmail.com')
+      go_to_restaurant
+      create_review
+      click_link 'Logout'
+      user_login('dra@gmail.com')
+      go_to_restaurant
+      expect(page).not_to have_content 'Edit Review'
     end
   end
 end

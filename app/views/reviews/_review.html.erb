@@ -14,6 +14,7 @@
 
 <p>
   <% if user_signed_in? && current_user.id == review.user_id %>
+    <%= link_to 'Edit Review', edit_restaurant_review_path(@restaurant, review) %>
     <%= link_to 'Delete', restaurant_review_path(@restaurant, review),
         method: :delete,
         data: { confirm: 'Are you sure?' } %>

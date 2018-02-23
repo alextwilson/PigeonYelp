@@ -1,13 +1,17 @@
-<%= form_with(model: [ @restaurant, @restaurant.reviews.build ], local: true) do |form| %>
+<%= form_with(model: [ @restaurant, new_or_update ], local: true) do |form| %>
+
   <p>
     <%= form.label :rating %><br>
     <%= form.select :rating, (1..5) %>
   </p>
+
   <p>
     <%= form.label :comment %><br>
     <%= form.text_area :body %>
   </p>
+
   <%= form.hidden_field :user_id, :value => current_user.id %>
+
   <p>
     <%= form.submit %>
   </p>
