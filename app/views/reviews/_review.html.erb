@@ -1,7 +1,6 @@
 <p>
   <strong>Rating:</strong>
   <%= review.rating %>
-  <%= "*" * review.rating %>
   <% review.rating.times { -%> <%= render '/reviews/stars' %> <% } -%>
 </p>
 

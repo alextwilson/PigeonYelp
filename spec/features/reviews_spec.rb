@@ -40,20 +40,6 @@ feature 'Reviews' do
       expect(page).not_to have_content 'Delete'
     end
 
-    scenario 'reviews are displayed as stars' do
-      user_login('alex@gmail.com')
-      create_restaurant
-      click_link 'Show'
-      click_link 'Logout'
-      user_login('lewis@gmail.com')
-      click_link 'All restaurants'
-      click_link 'Show'
-      select "3", :from => "review[rating]"
-      fill_in 'review[body]', with: 'Really Bad'
-      click_button 'Create Review'
-      expect(page).to have_content '***'
-    end
-
     scenario 'reviews are displayed as stars images' do
       user_login('alex@gmail.com')
       create_restaurant
@@ -65,7 +51,6 @@ feature 'Reviews' do
       select "3", :from => "review[rating]"
       fill_in 'review[body]', with: 'Really Bad'
       click_button 'Create Review'
-      expect(page).to have_content '***'
       expect(page).to have_selector('img[alt="image"]')
     end
 
