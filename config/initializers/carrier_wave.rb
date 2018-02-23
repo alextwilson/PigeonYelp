@@ -2,8 +2,8 @@ require 'carrierwave/orm/activerecord'
 CarrierWave.configure do |config|
   config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: ENV["FACEBOOK_KEY"],
-      aws_secret_access_key: ENV["FACEBOOK_SECRET"],
+      aws_access_key_id: ENV["AMAZON_KEY"],
+      aws_secret_access_key: ENV["AMAZON_SECRET"],
       region: 'eu-west-2'
   }
 
