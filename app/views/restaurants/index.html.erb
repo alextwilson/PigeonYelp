@@ -2,14 +2,14 @@
 
 <%= link_to 'New restaurant', new_restaurant_path %>
 <body>
-<table>
+<table id='image1'>
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Click to see more</th>
     <th>Average Rating</th>
-    <th>Option to edit</th>
-    <th>Average Rating</th>
+    <th>Click to edit</th>
+    <th>Click to delete</th>
   </tr>
 
   <% @restaurants.each do |restaurant| %>
