@@ -20,6 +20,11 @@ The aim of this project was to create a working clone of Yelp using Rails. We sp
 * A user can't review restaurants that they created themselves
 * A user can log in with Facebook via OmniAuth
 
-
+**Version 3 introduced the following features**
+* A user must be logged in in order to be able to create a restaurant
+* A user can only edit and delete restaurants that they have created
+* A user can only leave one review per restaurant
+* A user can delete a review they have left
+* A user can upload an image of a restaurant they are creating. This image will be stored in an Amazon S3 bucket
 
 ![Alt text](./doc/images/screenshot_1.jpg)
