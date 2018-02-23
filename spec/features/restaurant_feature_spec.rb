@@ -1,6 +1,3 @@
-require 'rails_helper'
-require 'web_helpers.rb'
-
 feature 'restaurants' do
 
   before do
@@ -30,7 +27,6 @@ feature 'restaurants' do
       expect(page).not_to have_content('PizzaMamamia')
     end
   end
-
 
   context 'restaurants can be shown' do
     scenario 'display the restaurant details' do
@@ -62,6 +58,4 @@ feature 'restaurants' do
     expect(page).to have_content 'error'
     end
   end
-
-
 end

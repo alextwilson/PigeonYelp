@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature 'User logs in with Facebook' do
   scenario 'user sees sign in with facebook link' do
     visit root_path

@@ -10,6 +10,8 @@ class RestaurantsController < ApplicationController
 	end
 
 	def new
+		redirect_to new_user_session_path if current_user == nil
+
 		@restaurant = Restaurant.new
 	end
 
