@@ -26,6 +26,3 @@ The aim of this project was to create a working clone of Yelp using Rails. We sp
 * A user can only leave one review per restaurant
 * A user can delete a review they have left
 * A user can upload an image of a restaurant they are creating. This image will be stored in an Amazon S3 bucket
-
-[![Screen Shot](./doc/images/screenshot_1.jpg">)](Screenshot 1)
-![Alt text](./doc/images/screenshot_1.jpg)
