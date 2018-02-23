@@ -1,4 +1,4 @@
-# PigeonYelp
+# Yelp!
 
 Yelp clone created by [Lewis Moore](https://github.com/lewmoore) | [Alex Wilson](https://github.com/alextwilson) | [Simon Bao](https://github.com/simonbao) | [Alexandra Fina](https://github.com/alexandragf)
 
